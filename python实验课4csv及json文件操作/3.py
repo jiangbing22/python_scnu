@@ -13,15 +13,10 @@ with open("Dylan_van_Baarle.html") as html:
     matches = pattern.search(code)
 
     if matches:
-        # 获取匹配到的 JSON 字符串
         json_string = matches.group(1)
-
-        # 将 JSON 字符串解析为 Python 字典
         df=pd.read_json(json_string)
-        print(f'The value of {variable_name} is:')
-        print(df)
+        print(df["workoutDetailData"])
     else:
         print(f'Variable {variable_name} not found in the JavaScript code.')
-    df.to_csv("test3.csv")
 
-# 将数据写入CSV文件
+    df.to_csv("test3.csv")
